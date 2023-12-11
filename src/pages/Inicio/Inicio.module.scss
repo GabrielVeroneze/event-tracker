@@ -1,0 +1,25 @@
+@use '@/sass/variaveis' as *;
+
+.grid {
+    background: $rosa-claro;
+    background: radial-gradient(circle, #eeaeca 0%, #94bbe9 100%);
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr 2.5fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: '. .';
+    height: 100vh;
+    overflow: hidden;
+    padding: 1.25rem;
+
+    ::-webkit-scrollbar {
+        background-color: $cinza-claro-2;
+        border-radius: 1rem;
+        width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: $preto;
+        border-radius: 1rem;
+    }
+}
