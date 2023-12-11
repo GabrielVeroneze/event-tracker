@@ -1,0 +1,12 @@
+@use '@/sass/variaveis' as *;
+
+.container {
+    background: $branco;
+    border: 1px solid $branco;
+    border-radius: 1rem;
+    height: 100%;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+    width: 100%;
+}
