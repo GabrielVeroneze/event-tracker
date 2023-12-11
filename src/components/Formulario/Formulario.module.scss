@@ -24,17 +24,6 @@
     }
 
     .botao {
-        background: $azul-claro;
-        border: 1px solid $roxo-com-opacidade;
-        border-radius: 2rem;
-        cursor: pointer;
-        font-size: 1rem;
-        margin: 0.5rem 0;
-        padding: 0.75rem 1.5rem;
-
-        &:hover {
-            background: $roxo-com-opacidade;
-            border-color: $azul-claro;
-        }
+        @include estilos-botao;
     }
 }
