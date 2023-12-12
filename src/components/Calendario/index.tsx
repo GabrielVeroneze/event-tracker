@@ -31,10 +31,21 @@ const Calendario: React.FC<{ eventos: IEvento[] }> = ({ eventos }) => {
         })
     })
 
+    // Transforma o Map em um array de 'CalendarEvent'
+    const eventosParaKalend = Array.from(eventosKalend.values()).flatMap(eventosDoDia =>
+        eventosDoDia.map(evento => ({
+            id: evento.id,
+            startAt: evento.startAt,
+            endAt: evento.endAt,
+            summary: evento.summary,
+            color: evento.color,
+        }))
+    )
+
     return (
         <div className={styles.container}>
             <Kalend
-                events={Object.fromEntries(eventosKalend)}
+                events={eventosParaKalend}
                 initialDate={new Date().toISOString()}
                 hourHeight={60}
                 initialView={CalendarView.WEEK}
