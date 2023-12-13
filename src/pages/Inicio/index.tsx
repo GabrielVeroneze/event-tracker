@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { RecoilRoot } from 'recoil'
 import { IEvento } from '@/interfaces/IEvento'
 import Card from '@/components/Card'
 import Formulario from '@/components/Formulario'
@@ -43,23 +44,26 @@ const Inicio: React.FC = () => {
         )
 
     return (
-        <div className={styles.grid}>
-            <div>
-                <Card>
-                    <Formulario aoSalvar={adicionarEvento} />
-                </Card>
-                <hr />
-                <Card>
-                    <ListaDeEventos
-                        aoFiltroAplicado={aplicarFiltro}
-                        aoAlterarStatus={alterarStatusEvento}
-                        aoDeletarEvento={deletarEvento}
-                    />
-                </Card>
+        <RecoilRoot>
+            <div className={styles.grid}>
+                <div>
+                    <Card>
+                        <Formulario aoSalvar={adicionarEvento} />
+                    </Card>
+                    <hr />
+                    <Card>
+                        <ListaDeEventos
+                            aoFiltroAplicado={aplicarFiltro}
+                            aoAlterarStatus={alterarStatusEvento}
+                            aoDeletarEvento={deletarEvento}
+                        />
+                    </Card>
+                </div>
+                <div>
+                    <Calendario />
+                </div>
             </div>
-            <div>
-            </div>
-        </div>
+        </RecoilRoot>
     )
 }
 
