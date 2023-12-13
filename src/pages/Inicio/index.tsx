@@ -54,12 +54,10 @@ const Inicio: React.FC = () => {
                         aoFiltroAplicado={aplicarFiltro}
                         aoAlterarStatus={alterarStatusEvento}
                         aoDeletarEvento={deletarEvento}
-                        eventos={filtrados}
                     />
                 </Card>
             </div>
             <div>
-                <Calendario eventos={eventos} />
             </div>
         </div>
     )
