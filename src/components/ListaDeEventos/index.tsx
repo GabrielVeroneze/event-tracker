@@ -5,9 +5,8 @@ import Evento from '@/components/Evento'
 import styles from './ListaDeEventos.module.scss'
 
 const ListaDeEventos: React.FC<{
-    aoAlterarStatus: (id: number) => void
     aoFiltroAplicado: (data: Date | null) => void
-}> = ({ aoAlterarStatus, aoFiltroAplicado }) => {
+}> = ({ aoFiltroAplicado }) => {
     const eventos = useRecoilValue(listaDeEventosState)
 
     return (
@@ -15,11 +14,7 @@ const ListaDeEventos: React.FC<{
             <Filtro aoFiltroAplicado={aoFiltroAplicado} />
             <div className={styles.scroll}>
                 {eventos.map(evento => (
-                    <Evento
-                        aoAlterarStatus={aoAlterarStatus}
-                        evento={evento}
-                        key={evento.id}
-                    />
+                    <Evento evento={evento} key={evento.id} />
                 ))}
             </div>
         </section>
