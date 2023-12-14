@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { RecoilRoot } from 'recoil'
-import { IEvento } from '@/interfaces/IEvento'
 import Card from '@/components/Card'
 import Formulario from '@/components/Formulario'
 import ListaDeEventos from '@/components/ListaDeEventos'
@@ -8,18 +7,7 @@ import Calendario from '@/components/Calendario'
 import styles from './Inicio.module.scss'
 
 const Inicio: React.FC = () => {
-
     const [filtro, setFiltro] = useState<Date | null>()
-
-    const alterarStatusEvento = (id: number) => {
-        const evento = eventos.find(evento => evento.id === id)
-
-        if (evento) {
-            evento.completo = !evento.completo
-        }
-
-        setEventos([...eventos])
-    }
 
     const aplicarFiltro = (data: Date | null) => {
         setFiltro(data)
@@ -42,7 +30,6 @@ const Inicio: React.FC = () => {
                     <Card>
                         <ListaDeEventos
                             aoFiltroAplicado={aplicarFiltro}
-                            aoAlterarStatus={alterarStatusEvento}
                         />
                     </Card>
                 </div>
