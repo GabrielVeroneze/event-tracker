@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { IEvento } from '@/interfaces/IEvento'
+import { obterId } from '@/utils/gerarIdUnico'
 import styles from './Formulario.module.scss'
 
 const Formulario: React.FC = () => {
@@ -17,12 +18,13 @@ const Formulario: React.FC = () => {
     const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
 
-        aoSalvar({
+        const evento = {
+            id: obterId(),
             descricao,
             inicio: montarData(dataInicio, horaInicio),
             fim: montarData(dataFim, horaFim),
             completo: false,
-        })
+        }
 
         setDescricao('')
         setDataInicio('')
