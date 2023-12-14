@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { IEvento } from '@/interfaces/IEvento'
 import styles from './Formulario.module.scss'
 
-const Formulario: React.FC<{ aoSalvar: (evento: IEvento) => void }> = ({ aoSalvar }) => {
+const Formulario: React.FC = () => {
     const [descricao, setDescricao] = useState<string>('')
     const [dataInicio, setDataInicio] = useState<string>('')
     const [horaInicio, setHoraInicio] = useState<string>('')
