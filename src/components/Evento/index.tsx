@@ -5,8 +5,7 @@ import styles from './Evento.module.scss'
 const Evento: React.FC<{
     evento: IEvento
     aoAlterarStatus: (id: number) => void
-    aoDeletarEvento: (id: number) => void
-}> = ({ evento, aoAlterarStatus, aoDeletarEvento }) => {
+}> = ({ evento, aoAlterarStatus }) => {
     return (
         <div
             className={`
@@ -20,7 +19,6 @@ const Evento: React.FC<{
             </h3>
             <i
                 className="far fa-times-circle fa-2x"
-                onClick={() => aoDeletarEvento(evento.id!)}
             ></i>
         </div>
     )
