@@ -21,10 +21,6 @@ const Inicio: React.FC = () => {
         setEventos([...eventos])
     }
 
-    const deletarEvento = (id: number) => {
-        setEventos([...eventos.filter(evento => evento.id !== id)])
-    }
-
     const aplicarFiltro = (data: Date | null) => {
         setFiltro(data)
     }
@@ -47,7 +43,6 @@ const Inicio: React.FC = () => {
                         <ListaDeEventos
                             aoFiltroAplicado={aplicarFiltro}
                             aoAlterarStatus={alterarStatusEvento}
-                            aoDeletarEvento={deletarEvento}
                         />
                     </Card>
                 </div>
