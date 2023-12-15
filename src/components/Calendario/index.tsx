@@ -50,6 +50,18 @@ const Calendario: React.FC = () => {
         kalendEventoInalterado: CalendarEvent,
         kalendEventoAtualizado: CalendarEvent
     ) => {
+        setListaDeEventos(listaAnterior =>
+            listaAnterior.map(eventoAnterior => {
+                if (eventoAnterior.id === kalendEventoAtualizado.id) {
+                    return {
+                        ...eventoAnterior,
+                        inicio: new Date(kalendEventoAtualizado.startAt),
+                        fim: new Date(kalendEventoAtualizado.endAt)
+                    }
+                }
+                return eventoAnterior
+            })
+        )
     }
 
     return (
