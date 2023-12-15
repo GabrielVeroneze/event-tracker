@@ -1,7 +1,6 @@
 import Kalend, { CalendarEvent, CalendarView, OnEventDragFinish } from 'kalend'
-import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { useRecoilValue } from 'recoil'
 import { listaDeEventosState } from '@/state/atom'
-import { IEvento } from '@/interfaces/IEvento'
 import ptBR from './localizacao/ptBR.json'
 import styles from './Calendario.module.scss'
 import 'kalend/dist/styles/index.css'
@@ -16,7 +15,6 @@ interface IKalendEvento {
 
 const Calendario: React.FC = () => {
     const eventos = useRecoilValue(listaDeEventosState)
-    const setListaDeEventos = useSetRecoilState<IEvento[]>(listaDeEventosState)
     const eventosKalend = new Map<string, IKalendEvento[]>()
 
     eventos.forEach(evento => {
@@ -50,18 +48,6 @@ const Calendario: React.FC = () => {
         kalendEventoInalterado: CalendarEvent,
         kalendEventoAtualizado: CalendarEvent
     ) => {
-        setListaDeEventos(listaAnterior =>
-            listaAnterior.map(eventoAnterior => {
-                if (eventoAnterior.id === kalendEventoAtualizado.id) {
-                    return {
-                        ...eventoAnterior,
-                        inicio: new Date(kalendEventoAtualizado.startAt),
-                        fim: new Date(kalendEventoAtualizado.endAt)
-                    }
-                }
-                return eventoAnterior
-            })
-        )
     }
 
     return (
