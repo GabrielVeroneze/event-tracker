@@ -4,10 +4,7 @@ import { IEvento } from '@/interfaces/IEvento'
 import EventoCheckbox from './EventoCheckbox'
 import styles from './Evento.module.scss'
 
-const Evento: React.FC<{
-    evento: IEvento
-    aoAlterarStatus: (id: number) => void
-}> = ({ evento, aoAlterarStatus }) => {
+const Evento: React.FC<{ evento: IEvento }> = ({ evento }) => {
     const setListaDeEventos = useSetRecoilState<IEvento[]>(listaDeEventosState)
 
     const excluirEvento = () => {
@@ -25,7 +22,7 @@ const Evento: React.FC<{
                 ${evento.completo ? styles.completo : ''}
             `}
         >
-            <EventoCheckbox evento={evento} aoAlterarStatus={aoAlterarStatus} />
+            <EventoCheckbox evento={evento} />
             <h3 className={styles.descricao}>
                 {evento.descricao} - {evento.inicio.toLocaleDateString()}
             </h3>
