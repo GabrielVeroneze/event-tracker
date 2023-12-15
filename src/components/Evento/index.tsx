@@ -1,8 +1,10 @@
+import { useExcluirEvento } from '@/hooks/useExcluirEvento'
 import { IEvento } from '@/interfaces/IEvento'
 import EventoCheckbox from './EventoCheckbox'
 import styles from './Evento.module.scss'
 
 const Evento: React.FC<{ evento: IEvento }> = ({ evento }) => {
+    const { excluirEvento } = useExcluirEvento()
 
     return (
         <div
@@ -17,7 +19,7 @@ const Evento: React.FC<{ evento: IEvento }> = ({ evento }) => {
             </h3>
             <i
                 className="far fa-times-circle fa-2x"
-                onClick={excluirEvento}
+                onClick={() => excluirEvento(evento)}
             ></i>
         </div>
     )
