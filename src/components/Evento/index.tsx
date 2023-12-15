@@ -1,19 +1,8 @@
-import { useSetRecoilState } from 'recoil'
-import { listaDeEventosState } from '@/state/atom'
 import { IEvento } from '@/interfaces/IEvento'
 import EventoCheckbox from './EventoCheckbox'
 import styles from './Evento.module.scss'
 
 const Evento: React.FC<{ evento: IEvento }> = ({ evento }) => {
-    const setListaDeEventos = useSetRecoilState<IEvento[]>(listaDeEventosState)
-
-    const excluirEvento = () => {
-        setListaDeEventos(eventosAntigos =>
-            eventosAntigos.filter(
-                eventoAntigo => eventoAntigo.id !== evento.id
-            )
-        )
-    }
 
     return (
         <div
