@@ -1,4 +1,4 @@
-import Kalend, { CalendarView } from 'kalend'
+import Kalend, { CalendarEvent, CalendarView, OnEventDragFinish } from 'kalend'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { listaDeEventosState } from '@/state/atom'
 import { IEvento } from '@/interfaces/IEvento'
@@ -46,6 +46,12 @@ const Calendario: React.FC = () => {
         }))
     )
 
+    const onEventDragFinish: OnEventDragFinish = (
+        kalendEventoInalterado: CalendarEvent,
+        kalendEventoAtualizado: CalendarEvent
+    ) => {
+    }
+
     return (
         <div className={styles.container}>
             <Kalend
@@ -58,6 +64,7 @@ const Calendario: React.FC = () => {
                 calendarIDsHidden={['work']}
                 language={'customLanguage'}
                 customLanguage={ptBR}
+                onEventDragFinish={onEventDragFinish}
             />
         </div>
     )
