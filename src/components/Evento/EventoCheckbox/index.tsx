@@ -1,10 +1,24 @@
+import { useSetRecoilState } from 'recoil'
+import { listaDeEventosState } from '@/state/atom'
 import { IEvento } from '@/interfaces/IEvento'
 
-const EventoCheckbox: React.FC<{
-    evento: IEvento
-    aoAlterarStatus: (id: number) => void
-}> = ({ evento, aoAlterarStatus }) => {
+const EventoCheckbox: React.FC<{ evento: IEvento }> = ({ evento }) => {
+    const setListaDeEventos = useSetRecoilState<IEvento[]>(listaDeEventosState)
     
+    const alterarStatus = () => {
+        setListaDeEventos(ListaAnterior => 
+            ListaAnterior.map(eventoAnterior => {
+                if (eventoAnterior.id === evento.id) {
+                    return {
+                        ...eventoAnterior,
+                        completo: !eventoAnterior.completo
+                    }
+                }
+                return eventoAnterior
+            })
+        )
+    }
+
     const estilos = [
         'far',
         'fa-2x',
@@ -14,7 +28,7 @@ const EventoCheckbox: React.FC<{
     return (
         <i
             className={estilos.join(' ')}
-            onClick={() => aoAlterarStatus(evento.id!)}
+            onClick={alterarStatus}
         ></i>
     )
 }
