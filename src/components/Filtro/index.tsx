@@ -1,18 +1,13 @@
 import { useState } from 'react'
 import styles from './Filtro.module.scss'
 
-const Filtro: React.FC<{ aoFiltroAplicado: (data: Date | null) => void }> = ({ aoFiltroAplicado }) => {
     const [data, setData] = useState<string>('')
 
     const handleFormSubmit = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
 
-        if (!data) {
-            aoFiltroAplicado(null)
-            return
         }
 
-        aoFiltroAplicado(new Date(data))
     }
 
     return (
