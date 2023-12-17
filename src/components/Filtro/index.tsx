@@ -20,6 +20,8 @@ const Filtro: React.FC = () => {
             filtro.data = null
         }
 
+        filtro.status = status
+
         setFiltroDeEvento(filtro)
     }
 
