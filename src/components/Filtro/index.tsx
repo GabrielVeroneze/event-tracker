@@ -6,6 +6,7 @@ import styles from './Filtro.module.scss'
 
 const Filtro: React.FC = () => {
     const [data, setData] = useState<string>('')
+    const [status, setStatus] = useState<string>('')
     const setFiltroDeEvento = useSetRecoilState<IFiltroDeEventos>(filtroDeEventos)
 
     const handleFormSubmit = (evento: React.FormEvent<HTMLFormElement>) => {
