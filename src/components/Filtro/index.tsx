@@ -33,6 +33,16 @@ const Filtro: React.FC = () => {
                 placeholder="Por data"
                 value={data}
             />
+            <h3 className={styles.titulo}>Filtrar por estado</h3>
+            <select
+                className={styles.input}
+                value={status}
+                onChange={evento => setStatus(evento.target.value)}
+            >
+                <option value=""></option>
+                <option value="completo">Completo</option>
+                <option value="incompleto">Incompleto</option>
+            </select>
             <button className={styles.botao}>Filtrar</button>
         </form>
     )
