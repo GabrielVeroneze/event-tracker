@@ -8,14 +8,19 @@ export const eventosFiltradosState = selector({
         const todosOsEventos = get(listaDeEventosState)
 
         const eventos = todosOsEventos.filter(evento => {
-            if (!filtro.data) {
-                return true
-            }
-
             const eventoFormatado = evento.inicio.toISOString().slice(0, 10)
-            const filtroFormatado = filtro.data.toISOString().slice(0, 10)
+            const filtroFormatado = filtro.data?.toISOString().slice(0, 10)
 
-            return eventoFormatado === filtroFormatado
+            const passaFiltragemData = !filtro.data || eventoFormatado === filtroFormatado;
+
+            switch (filtro.status) {
+                case 'completo':
+                    return passaFiltragemData && evento.completo === true
+                case 'incompleto':
+                    return passaFiltragemData && evento.completo === false
+                default:
+                    return passaFiltragemData
+            }
         })
 
         return eventos
