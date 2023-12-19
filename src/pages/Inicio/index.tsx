@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { RecoilRoot } from 'recoil'
 import Card from '@/components/Card'
 import Formulario from '@/components/Formulario'
@@ -15,11 +16,15 @@ const Inicio: React.FC = () => {
                     </Card>
                     <hr />
                     <Card>
-                        <ListaDeEventos />
+                        <Suspense>
+                            <ListaDeEventos />
+                        </Suspense>
                     </Card>
                 </div>
                 <div>
-                    <Calendario />
+                    <Suspense>
+                        <Calendario />
+                    </Suspense>
                 </div>
             </div>
         </RecoilRoot>
