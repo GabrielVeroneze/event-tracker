@@ -46,6 +46,7 @@ const Calendario: React.FC = () => {
     )
 
     const onEventDragFinish: OnEventDragFinish = (
+        // @ts-expect-error: kalendEventoInalterado não é usado, mas é necessário para obter kalendEventoAtualizado
         kalendEventoInalterado: CalendarEvent,
         kalendEventoAtualizado: CalendarEvent
     ) => {
